@@ -23,7 +23,7 @@ public static void main(String[] a) {
             multiPart.field("params", "{\"accountId\":\"67\"}");
 
             ClientResponse clientResponse = webResource.type(MediaType.MULTIPART_FORM_DATA_TYPE).
-                    header("apiKey", "H9I3d3f9e4a6b3be4678fe4f2147ef5eae83ea200f23ad943ffa2b9d564e726bab52-IOS-@rkDev").
+                    header("apiKey", "apiKey").
                     post(ClientResponse.class, multiPart);
             System.out.println("Response: " + clientResponse.getStatus());
         } catch (Exception e) {
