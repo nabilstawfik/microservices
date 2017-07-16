@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Microservice Web Client</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link href="resources/css/style.css" rel="stylesheet"/>
+    </head>
+    <body>
+        <div class="Container">
+            <header>
+                <img  src="resources/graphics/__logo.png" />
+            </header>
+            <section class="center_content">
+                <h1>Please fill the following fields</h1>
+                <form  method="post" id="serviceForm" onsubmit="return submitForm();">
+                    <div >
+                        <div >UUID: </div>
+                        <div ><input id="uuid" type="text" /></div>
+                    </div>
+                    <br/>
+                    <div>
+                        <div ><input type="submit" value="Create Instance" /></div>
+                    </div>
+                </form>
+                <input type="hidden" id="apiKey" value="apiKey-rest-aLgUXVOadPzZ2-pTkaALoA"/>
+            </section>
+            <footer>
+                <br />© Copyright 2017 Microservice. All Rights Reserved<br /><br />
+            </footer>
+        </div>
+        <script type="text/javascript" src="resources/js/jquery-3.2.1.min.js"></script>
+        <script type="text/javascript" src="resources/js/microservice.js"></script>
+    </body>
+</html>
