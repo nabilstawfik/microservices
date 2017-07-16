@@ -1,5 +1,5 @@
 
-###################################       SSL behind load balancer    ###############################################
+###################################      Force SSL redirection behind load balancer    ###############################################
 Post deploy config path:
 $ sudo vi /opt/elasticbeanstalk/hooks/appdeploy/post/ssl_rewrite.sh
 
