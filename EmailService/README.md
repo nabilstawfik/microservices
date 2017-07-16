@@ -1,1 +1,1 @@
-# email-service
+# Integration with Mailgun and Mandrill.
