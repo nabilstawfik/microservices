@@ -1,0 +1,1 @@
+Spring boot application with database integration, Restful web services using Jersey, Spring profiles and docker.
