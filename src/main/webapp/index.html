@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Email Service Web Client</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link href="/resources/css/style.css" rel="stylesheet"/>
+    </head>
+    <body>
+        <div class="Container">
+            <header>
+                <img  src="/resources/graphics/site_logo.jpg"  title="Email Service" alt="Email Service"/>
+            </header>
+            <section class="center_content">
+                <h1>Please fill the following fields</h1>
+                <form  method="post" id="emailForm" onsubmit="return submitForm();">
+                    <div >
+                        <div >Email: </div>
+                        <div ><input id="to" name="to" type="text" /></div>
+                    </div>
+                    <br/>
+                    <div >
+                        <div >Subject: </div>
+                        <div ><input name="subject" id="subject" type="text" /></div>                   
+                    </div>
+                    <br/>
+                    <div >
+                        <div >Body: </div>
+                        <div ><textarea name="body" id="body" cols="48" rows="8"></textarea> </div>
+                    </div>
+                    <br />
+                    <div>
+                        <div ><input type="submit" value="Send Email" /></div>
+                    </div>
+                </form>
+                <input type="hidden" id="apiKey" value="apiKey-rest-aLgUXVOadPzZ2-pTkaALoA"/>
+            </section>
+            <footer>
+                <br />© Copyright 2017 Email Service. All Rights Reserved<br /><br />
+            </footer>
+        </div>
+        <script type="text/javascript" src="/resources/js/jquery-3.2.1.min.js"></script>
+        <script type="text/javascript" src="/resources/js/scripts.js"></script>
+    </body>
+</html>
