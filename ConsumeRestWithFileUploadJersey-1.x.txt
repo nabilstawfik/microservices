@@ -1,0 +1,32 @@
+
+
+
+import com.sun.jersey.api.client.Client;
+import com.sun.jersey.api.client.ClientResponse;
+import com.sun.jersey.api.client.WebResource;
+import com.sun.jersey.core.header.FormDataContentDisposition;
+import com.sun.jersey.multipart.FormDataMultiPart;
+import com.sun.jersey.multipart.FormDataParam;
+import com.sun.jersey.multipart.file.FileDataBodyPart;
+
+
+
+public static void main(String[] a) {
+        try {
+            Client client = Client.create();
+            WebResource webResource = client.resource("http://localhost:8080/rest/api/account/updateAccountProfileImage");
+
+            FileDataBodyPart filePart = new FileDataBodyPart("file", new File("/home/nabil/demo.txt"));
+
+            FormDataMultiPart multiPart = new FormDataMultiPart();
+            multiPart.bodyPart(filePart);
+            multiPart.field("params", "{\"accountId\":\"67\"}");
+
+            ClientResponse clientResponse = webResource.type(MediaType.MULTIPART_FORM_DATA_TYPE).
+                    header("apiKey", "apiKey").
+                    post(ClientResponse.class, multiPart);
+            System.out.println("Response: " + clientResponse.getStatus());
+        } catch (Exception e) {
+            SystemLogger.getLogger(AccountRestServiceApi.class.getName()).error(e.getMessage(), e);
+        }
+    }
