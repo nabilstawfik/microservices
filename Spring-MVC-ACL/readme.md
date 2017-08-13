@@ -10,6 +10,7 @@ Skeleton project using spring 4.3.8, spring security 4.2, AOP and ACL.
     <li>From item listing page you can delete an item.</li>
     <li>Item listing page, list only items according to current authenticated user permission.</li>
 </ul>
+<h2>Security:</h2>
 <ul>
     <li>Implemented user role management using spring security, i build my custom user details class and used it in the authentication context.</li>
     <li>Secured urls using spring security URL interceptors.</li>
