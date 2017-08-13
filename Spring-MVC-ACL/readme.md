@@ -1,4 +1,4 @@
-Skeleton project using Netbeans 8, jdk 1.8, Maven, spring 4.3.8, spring security 4.2, AOP and ACL.
+<h1>Skeleton project using Netbeans 8, jdk 1.8, Maven, spring 4.3.8, spring security 4.2, AOP and ACL.</h1>
 
 <h2>How to start:</h2>
 <ul>
