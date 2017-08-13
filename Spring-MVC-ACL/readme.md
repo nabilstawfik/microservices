@@ -1,7 +1,8 @@
-Skeleton project using spring 4.3.8, spring security 4.2, AOP and ACL.
+Skeleton project using Netbeans 8, jdk 1.8, Maven, spring 4.3.8, spring security 4.2, AOP and ACL.
 
 <h2>How to start:</h2>
 <ul>
+    <li>Open project with netbeans and run it (http://localhost:8080).</li>
     <li>You have to register with email address and password from <a href="/register">Register</a> link on top of page or from side link.</li>
     <li><a href="/login">Login</a> with your info.</li>
     <li>After login your will be redirected to item listing page.</li>
