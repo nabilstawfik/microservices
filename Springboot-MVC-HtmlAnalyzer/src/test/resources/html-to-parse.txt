@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Welcome !</title>
+    </head>
+    <body>
+       
+<link href="https://www.google.com" type="text/css" rel="stylesheet" media="all"/>
+<div id="container">
+    <header>
+        <div class="floatL">
+            <a href="https://www.google.com"><img src="https://4.bp.blogspot.com/-FEzye25Q1lQ/VzXf5tmAWHI/AAAAAAAAAJw/_1MNDe7h16Y18obBGh8NafvhBDoYMEE0QCKgB/s1600/springboot.png"/></a>
+        </div>
+        <div class="floatR">
+            Welcome !
+        </div>
+        <div style="clear:both"></div>
+        <hr/>
+    </header>
+    <section id="content">
+            <form  method="post">
+                <table width="75%">
+                    <tr>
+                        <td width="25%">HTTP(s) URL:</td>
+                        <td><input type='text' name='pageURL'></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>
+                            <input type="submit" value="Fetch Analytics"/>                        
+                    </td>
+                </tr>
+                <tr></tr>
+
+            </table>
+            <br/>
+        </form>
+        <br/>
+</section>
+<hr/>
+<br/>
+<footer id="footer">
+   
+</footer>
+<br/>
+</div>
+    </body>
+
+</html>

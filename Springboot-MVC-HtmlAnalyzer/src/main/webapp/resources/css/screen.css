@@ -1,0 +1,158 @@
+/* Core styles for the page */
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #F1F1F1;
+    font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+    font-size: 0.8em;
+    color:#363636;
+}
+
+#container {
+    margin: 0 auto;
+    padding: 0 20px 10px 20px;
+    border-top: 5px solid #000000;
+    border-left: 5px solid #8c8f91;
+    border-right: 5px solid #8c8f91;
+    border-bottom: 25px solid #8c8f91;
+    width: 998px;
+    background: #FFFFFF;
+    background-repeat: repeat-x;
+    padding-top: 30px;
+    box-shadow: 3px 3px 15px #d5d5d5;
+}
+#content {
+    width: 96%;
+    margin: 20px;
+    min-height: 200px;
+}
+
+#footer {
+    clear: both;
+    text-align: center;
+    color: #666666;
+    font-size: 0.85em;
+}
+code {
+    font-size: 1.1em;
+}
+a {
+    color: #4a5d75;
+    text-decoration: none;
+}
+a:hover {
+    color: #369;
+    text-decoration: underline;
+}
+h1 {
+    color:#243446;
+    font-size: 2.25em;
+}
+h2 {
+    font-size: 1.5em;
+}
+h3 {
+    color:#243446;
+}
+h4 {
+}
+h5 {
+}
+h6 {
+}
+
+form {
+    
+    padding: 1em;
+    font: 80%/1 sans-serif;
+    border: 1px solid #D5D5D5;
+}
+input{
+    margin-bottom: 8px;
+    height: 20px;
+}
+input[type='text'] {
+    width: 80%;
+}
+input[type='submit'] {
+    width: 20%;
+}
+
+/*  -----  table style  -------  */
+
+.simpletablestyle {
+    background-color:#E6E7E8;
+    clear:both;
+    width: 100%;
+}
+
+.simpletablestyle td {
+    height:2em;
+    padding-left: 6px;
+    font-size:11px;
+    padding:5px 5px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    word-break:break-all;
+    vertical-align: top;
+}
+
+.simpletablestyle th {
+    font-size:12px;
+    height: 30px;
+    padding:0 10px 0 5px;
+    border-bottom:#999999 dotted 1px;
+    text-align: left;
+}
+
+.simpletablestyle thead {
+    font-size:10px;
+    font-weight:bold;
+    color:#000000;
+    text-align:left;
+}
+
+.simpletablestyle tr.header td {
+    padding: 0px 10px 0px 5px;
+}
+
+.simpletablestyle tr:nth-child(odd) {
+    background: #f4f3f3;
+}
+.simpletablestyle tr:nth-child(even) {
+    background: #ffffff;
+}
+
+.simpletablestyle td a:hover {
+    color:#3883ce;
+    text-decoration:none; 
+}
+
+.error {
+    padding: 15px;
+    margin-bottom: 20px;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    color: #a94442;
+    background-color: #f2dede;
+    border-color: #ebccd1;
+}
+
+.msg {
+    padding: 15px;
+    margin-bottom: 20px;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    color: #31708f;
+    background-color: #d9edf7;
+    border-color: #bce8f1;
+}
+.floatR{
+    float:right;
+}
+.floatL{
+    float:left;
+}
+.invisible{
+    display: none;
+}
