@@ -6,10 +6,7 @@
 package com.microservice;
 
 import com.microservice.dto.PageAnalysisDto;
-import com.microservice.enums.HtmlAnalyzerTypeEnum;
-import com.microservice.enums.LinkGroup;
 import com.microservice.service.HtmlAnalyzer;
-import com.microservice.service.HtmlAnalyzerFactory;
 import java.io.File;
 import java.io.IOException;
 import org.junit.Test;
@@ -21,22 +18,21 @@ import org.jsoup.nodes.Document;
 import org.mockito.Mockito;
 import org.powermock.api.mockito.PowerMockito;
 import org.powermock.core.classloader.annotations.PrepareForTest;
-import static org.assertj.core.api.Assertions.assertThat;
 import org.junit.After;
+import static org.assertj.core.api.Assertions.assertThat;
 
 @PrepareForTest({Jsoup.class})
-public class HtmlAnalyzerJsoupImplTest extends AbstractMockitoBaseTest {
+public class HtmlAnalyzerImplTest extends AbstractMockitoBaseTest {
 
     @Autowired
-    private HtmlAnalyzerFactory htmlAnalyzerFactory;
-
     private HtmlAnalyzer htmlAnalyzer;
+
+    
     private PageAnalysisDto pageAnalysisDto;
     private final String baseUrl = "http://localhost:8086/";
 
     @Before
     public void setup() throws IOException {
-        htmlAnalyzer = htmlAnalyzerFactory.getInstance(HtmlAnalyzerTypeEnum.JSOUP);
         mockJsoupConnection();
         pageAnalysisDto = htmlAnalyzer.conductWebPageAnalysis(baseUrl);
     }
@@ -57,44 +53,14 @@ public class HtmlAnalyzerJsoupImplTest extends AbstractMockitoBaseTest {
     }
 
     @Test
-    public void testInternalCount() {
-
-        assertThat(pageAnalysisDto.getHyperMediaLinksGroupedByLinkGroup().get(LinkGroup.INTERNAL)).isNull();
-    }
-
-    @Test
-    public void testExternalCount() {
-
-        assertThat(pageAnalysisDto.getHyperMediaLinksGroupedByLinkGroup().get(LinkGroup.EXTERNAL)).isEqualTo(3);
-    }
-
-    @Test
-    public void testValidCount() {
-
-        assertThat(pageAnalysisDto.getHyperMediaLinksGroupedByLinkResponseStatusCode().get(true).size()).isEqualTo(3);
-    }
-
-    @Test
-    public void testInvalidCount() {
-
-        assertThat(pageAnalysisDto.getHyperMediaLinksGroupedByLinkResponseStatusCode().get(false)).isNull();
-    }
-
-    @Test
-    public void testDocumentTitle() {
-
+    public void testAnalyzer() {
+        assertThat(pageAnalysisDto.getInternalMediaLinksCount()).isEqualTo(0);
+        assertThat(pageAnalysisDto.getExternalMediaLinksCount()).isEqualTo(3);
+        assertThat(pageAnalysisDto.getValidLinks().size()).isEqualTo(3);
+        assertThat(pageAnalysisDto.getInValidLinks()).isNull();
         assertThat(pageAnalysisDto.getPageTitle()).isEqualTo("Welcome !");
-    }
-
-    @Test
-    public void testHtmlVersion() {
-
         assertThat(pageAnalysisDto.getHtmlVersion()).isEqualTo("HTML 5");
-    }
-
-    @Test
-    public void testIsContainsLogin() {
-        assertThat(pageAnalysisDto.isContainLoginForm()).isEqualTo(false);
+        assertThat(pageAnalysisDto.isContainsLoginForm()).isEqualTo(false);
     }
 
 }

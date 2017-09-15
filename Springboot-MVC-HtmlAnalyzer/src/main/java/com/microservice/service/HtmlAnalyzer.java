@@ -7,7 +7,7 @@ package com.microservice.service;
 
 import com.microservice.dto.HyperMediaLinkDto;
 import com.microservice.dto.PageAnalysisDto;
-import com.microservice.enums.LinkGroup;
+import com.microservice.constants.LinkGroupEnum;
 import java.io.IOException;
 import java.net.HttpURLConnection;
 import java.net.URI;
@@ -35,12 +35,12 @@ public interface HtmlAnalyzer {
     default void setHyberMediaLinkGroup(HyperMediaLinkDto hyperMediaLinkDto, String url) {
         try {
             if (getHostName(url).equals(getHostName(hyperMediaLinkDto.getUrl()))) {
-                hyperMediaLinkDto.setLinkGroup(LinkGroup.INTERNAL);
+                hyperMediaLinkDto.setLinkGroup(LinkGroupEnum.INTERNAL);
             } else {
-                hyperMediaLinkDto.setLinkGroup(LinkGroup.EXTERNAL);
+                hyperMediaLinkDto.setLinkGroup(LinkGroupEnum.EXTERNAL);
             }
         } catch (Exception ex) {
-            hyperMediaLinkDto.setLinkGroup(LinkGroup.EXTERNAL);
+            hyperMediaLinkDto.setLinkGroup(LinkGroupEnum.EXTERNAL);
         }
     }
 

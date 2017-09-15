@@ -7,7 +7,7 @@ package com.microservice.service.impl;
 
 import com.microservice.dto.PageAnalysisDto;
 import com.microservice.dto.HyperMediaLinkDto;
-import com.microservice.enums.LinkGroup;
+import com.microservice.constants.LinkGroupEnum;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -25,9 +25,9 @@ import org.springframework.util.StringUtils;
 import com.microservice.service.HtmlAnalyzer;
 import java.util.Optional;
 
-@Service(value = "htmlAnalyzerJsoup")
+@Service(value = "htmlAnalyzer")
 @Primary
-class HtmlAnalyzerJsoupImpl implements HtmlAnalyzer {
+class HtmlAnalyzerImpl implements HtmlAnalyzer {
 
     /**
      * Conduct the web page analysis on the given url.
@@ -43,14 +43,20 @@ class HtmlAnalyzerJsoupImpl implements HtmlAnalyzer {
 
         pageAnalysisDto.setPageTitle(document.title());
         pageAnalysisDto.setHtmlVersion(getHtmlVersion(document));
-        pageAnalysisDto.setHeadings(getHeadingsGroupedByHeadinglevel(document));
+        pageAnalysisDto.setHeadingsMap(getHeadingsGroupedByHeadinglevel(document));
 
         List<HyperMediaLinkDto> hyperMediaLinkDtos = getHyperMediaLinksList(document);
+        Map<LinkGroupEnum, Long> linksMap = getHyperMediaLinksGroupedByLinkGroup(hyperMediaLinkDtos);
+        Long internalCount = linksMap.get(LinkGroupEnum.INTERNAL);
+        Long externalCount = linksMap.get(LinkGroupEnum.EXTERNAL);
+        pageAnalysisDto.setInternalMediaLinksCount(internalCount == null ? 0 : internalCount);
+        pageAnalysisDto.setExternalMediaLinksCount(externalCount == null ? 0 : externalCount);
 
-        pageAnalysisDto.setHyperMediaLinksGroupedByLinkGroup(getHyperMediaLinksGroupedByLinkGroup(hyperMediaLinkDtos));
-        pageAnalysisDto.setHyperMediaLinksGroupedByLinkResponseStatusCode(getHyperMediaLinksGroupedByIsValidURL(hyperMediaLinkDtos));
+        Map<Boolean, List<HyperMediaLinkDto>> map = getHyperMediaLinksGroupedByIsValidURL(hyperMediaLinkDtos);
+        pageAnalysisDto.setValidLinks(map.get(Boolean.TRUE));
+        pageAnalysisDto.setInValidLinks(map.get(Boolean.FALSE));
 
-        pageAnalysisDto.setContainLoginForm(isContainsLoginForm(document));
+        pageAnalysisDto.setContainsLoginForm(isContainsLoginForm(document));
 
         return pageAnalysisDto;
     }
@@ -89,7 +95,7 @@ class HtmlAnalyzerJsoupImpl implements HtmlAnalyzer {
      * @return map Key is the group name and Value is the count of links on the
      * group.
      */
-    public Map<LinkGroup, Long> getHyperMediaLinksGroupedByLinkGroup(List<HyperMediaLinkDto> hyperMediaLinkDtos) {
+    public Map<LinkGroupEnum, Long> getHyperMediaLinksGroupedByLinkGroup(List<HyperMediaLinkDto> hyperMediaLinkDtos) {
         return hyperMediaLinkDtos.parallelStream().collect(Collectors.groupingBy(HyperMediaLinkDto::getLinkGroup, Collectors.counting()));
     }
 

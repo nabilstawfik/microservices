@@ -5,7 +5,6 @@
  */
 package com.microservice.dto;
 
-import com.microservice.enums.LinkGroup;
 import java.util.List;
 import java.util.Map;
 
@@ -13,10 +12,14 @@ public class PageAnalysisDto {
 
     private String htmlVersion;
     private String pageTitle;
-    private Map<String, Long> headings;
-    private Map<LinkGroup, Long> hyperMediaLinksGroupedByLinkGroup;
-    private boolean containLoginForm;
-    private Map<Boolean, List<HyperMediaLinkDto>> hyperMediaLinksGroupedByLinkResponseStatusCode;
+    private Map<String, Long> headingsMap;
+
+    private long internalMediaLinksCount;
+    private long externalMediaLinksCount;
+    private boolean containsLoginForm;
+
+    private List<HyperMediaLinkDto> validLinks;
+    private List<HyperMediaLinkDto> inValidLinks;
 
     public PageAnalysisDto() {
     }
@@ -37,36 +40,54 @@ public class PageAnalysisDto {
         this.pageTitle = pageTitle;
     }
 
-    public Map<String, Long> getHeadings() {
-        return headings;
+    public Map<String, Long> getHeadingsMap() {
+        return headingsMap;
     }
 
-    public void setHeadings(Map<String, Long> headings) {
-        this.headings = headings;
+    public void setHeadingsMap(Map<String, Long> headingsMap) {
+        this.headingsMap = headingsMap;
     }
 
-    public Map<LinkGroup, Long> getHyperMediaLinksGroupedByLinkGroup() {
-        return hyperMediaLinksGroupedByLinkGroup;
+    public long getInternalMediaLinksCount() {
+        return internalMediaLinksCount;
     }
 
-    public void setHyperMediaLinksGroupedByLinkGroup(Map<LinkGroup, Long> hyperMediaLinksGroupedByLinkGroup) {
-        this.hyperMediaLinksGroupedByLinkGroup = hyperMediaLinksGroupedByLinkGroup;
+    public void setInternalMediaLinksCount(long internalMediaLinksCount) {
+        this.internalMediaLinksCount = internalMediaLinksCount;
     }
 
-    public boolean isContainLoginForm() {
-        return containLoginForm;
+    public long getExternalMediaLinksCount() {
+        return externalMediaLinksCount;
     }
 
-    public void setContainLoginForm(boolean containLoginForm) {
-        this.containLoginForm = containLoginForm;
+    public void setExternalMediaLinksCount(long externalMediaLinksCount) {
+        this.externalMediaLinksCount = externalMediaLinksCount;
     }
 
-    public Map<Boolean, List<HyperMediaLinkDto>> getHyperMediaLinksGroupedByLinkResponseStatusCode() {
-        return hyperMediaLinksGroupedByLinkResponseStatusCode;
+
+    public boolean isContainsLoginForm() {
+        return containsLoginForm;
     }
 
-    public void setHyperMediaLinksGroupedByLinkResponseStatusCode(Map<Boolean, List<HyperMediaLinkDto>> hyperMediaLinksGroupedByLinkResponseStatusCode) {
-        this.hyperMediaLinksGroupedByLinkResponseStatusCode = hyperMediaLinksGroupedByLinkResponseStatusCode;
+    public void setContainsLoginForm(boolean containsLoginForm) {
+        this.containsLoginForm = containsLoginForm;
     }
+
+    public List<HyperMediaLinkDto> getValidLinks() {
+        return validLinks;
+    }
+
+    public void setValidLinks(List<HyperMediaLinkDto> validLinks) {
+        this.validLinks = validLinks;
+    }
+
+    public List<HyperMediaLinkDto> getInValidLinks() {
+        return inValidLinks;
+    }
+
+    public void setInValidLinks(List<HyperMediaLinkDto> inValidLinks) {
+        this.inValidLinks = inValidLinks;
+    }
+
 
 }

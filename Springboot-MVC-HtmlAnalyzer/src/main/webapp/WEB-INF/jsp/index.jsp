@@ -57,7 +57,7 @@
                     </tr>
                     <tr>
                         <td width="30%">Contains Login Form</td>
-                        <td width="70%">${pageAnalysisDto.containLoginForm}</td>
+                        <td width="70%">${pageAnalysisDto.containsLoginForm}</td>
                     </tr>
                 </table>
             </div>
@@ -71,7 +71,7 @@
                             <th>Number of Headings</th>
                         </tr>
                     </thead>
-                    <c:forEach items="${pageAnalysisDto.headings}" var="heading">
+                    <c:forEach items="${pageAnalysisDto.headingsMap}" var="heading">
                         <tr>
                             <td width="30%">${heading.key} </td>
                             <td>${heading.value}</td>
@@ -90,14 +90,20 @@
                             <th>Number of Hypermedia Links</th>
                         </tr>
                     </thead>
-                    <c:forEach items="${pageAnalysisDto.hyperMediaLinksGroupedByLinkGroup}" var="mediaLinks">
+                    
                         <tr>
-                            <td>${mediaLinks.key.toString().toLowerCase()}</td>
+                            <td>Internal</td>
                             <td>
-                                ${mediaLinks.value}<br/>
+                                ${pageAnalysisDto.internalMediaLinksCount}<br/>
                             </td>
-                        </tr>
-                    </c:forEach>
+                    </tr>
+                        <tr>
+                            <td>External</td>
+                            <td>
+                                ${pageAnalysisDto.externalMediaLinksCount}<br/>
+                            </td>
+                    </tr>
+                    
                 </table>
             </div>
 
@@ -111,7 +117,7 @@
                             <th>Response Description</th>
                         </tr>
                     </thead>
-                    <c:forEach items="${pageAnalysisDto.hyperMediaLinksGroupedByLinkResponseStatusCode[true]}" var="hyperMediaLink">
+                    <c:forEach items="${pageAnalysisDto.validLinks}" var="hyperMediaLink">
                         <tr>
                             <td>${hyperMediaLink.responseStatusCode}</td>
                             <td>${hyperMediaLink.url}</td>
@@ -131,7 +137,7 @@
                             <th>Response Description</th>
                         </tr>
                     </thead>
-                    <c:forEach items="${pageAnalysisDto.hyperMediaLinksGroupedByLinkResponseStatusCode.get(false)}" var="hyperMediaLink">
+                    <c:forEach items="${pageAnalysisDto.inValidLinks}" var="hyperMediaLink">
                         <tr>
                             <td >${hyperMediaLink.responseStatusCode}</td>
                             <td >${hyperMediaLink.url}</td>

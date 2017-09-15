@@ -36,7 +36,7 @@
 <h2>4-Testing:</h2>
 	<ul>
 		<li>Used JUnit, SuperMockito and Mockito for unit testing.</li>
-		<li>Created 7 test cases, mocking Jsoup.connect(url).get() and parse html from "html-to-parse.txt" on the test resources.</li>
+		<li>Created a test case, mocking Jsoup.connect(url).get() and parse html from "html-to-parse.txt" on the test resources.</li>
 	</ul>
 
 <h2>5-Deployment:</h2>

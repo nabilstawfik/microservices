@@ -1,10 +1,10 @@
 package com.microservice.dto;
 
-import com.microservice.enums.LinkGroup;
+import com.microservice.constants.LinkGroupEnum;
 
 public class HyperMediaLinkDto {
 
-    LinkGroup linkGroup;
+    LinkGroupEnum linkGroup;
 
     String tagName;
 
@@ -24,11 +24,11 @@ public class HyperMediaLinkDto {
         this.url = url;
     }
 
-    public LinkGroup getLinkGroup() {
+    public LinkGroupEnum getLinkGroup() {
         return linkGroup;
     }
 
-    public void setLinkGroup(LinkGroup linkGroup) {
+    public void setLinkGroup(LinkGroupEnum linkGroup) {
         this.linkGroup = linkGroup;
     }
 
