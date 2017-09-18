@@ -40,7 +40,6 @@
             <ul>
                 <li>Used spring boot web as the main framework.</li>
                 <li>Used spring dependency injection to inject the beans.</li>
-                <li>Used simple design like strategy design pattern to handle multiple implementations of the html analyzer.</li>
             </ul>
             <h3>Handling URL validation performance issues:</h3>
             <ul>
