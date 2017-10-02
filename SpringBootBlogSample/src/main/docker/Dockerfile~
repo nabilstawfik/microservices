@@ -1,5 +1,0 @@
-FROM maven
-
-RUN mvn spring-boot:run
-COPY service-b-1.0-SNAPSHOT.war /usr/local/tomcat/webapps/ROOT.war
-
